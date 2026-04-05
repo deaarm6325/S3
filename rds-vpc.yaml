@@ -1,0 +1,18 @@
+# Description: Creates an RDS instance inside a VPC; Revision: 1; Date: 04/05/2026
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Amazon Relational Database Service (RDS) Instance Template
+
+Resources:
+  RdsInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: "20"
+      DBInstanceClass: db.t3.micro
+      DBInstanceIdentifier: playground-db
+      Engine: mysql
+      MasterUsername: admin
+      MasterUserPassword: CloudAcademy123!
+      PubliclyAccessible: true
+      VPCSecurityGroups:
+        - sg-xxxxxxxx   # replace with your actual security group ID
+      BackupRetentionPeriod: 0
